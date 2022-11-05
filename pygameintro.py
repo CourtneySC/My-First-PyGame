@@ -5,9 +5,11 @@ pygame.init()
 screen = pygame.display.set_mode((800, 400))
 pygame.display.set_caption('Runner') #sets the game name
 clock = pygame.time.Clock()
+test_font = pygame.font.Font('font/Pixeltype.ttf', 50)
 
-test_surface = pygame.Surface((100,200))
-test_surface.fill('green')
+sky_surface = pygame.image.load('graphics/Sky.png')
+ground_surface = pygame.image.load('graphics/ground.png')
+text_surface = test_font.render('My game',False,'black')
 
 while True:
     #event loop: checks for all types of player input
@@ -16,7 +18,9 @@ while True:
             pygame.quit()
             exit()
 
-    screen.blit(test_surface,(200,100))
+    screen.blit(sky_surface,(0,0))
+    screen.blit(ground_surface,(0,300))
+    screen.blit(text_surface,(300,50))
 
     pygame.display.update();
     clock.tick(60)
